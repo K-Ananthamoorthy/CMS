@@ -1,0 +1,20 @@
+<!-- manage_hostels.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management</title>
+</head>
+<body>
+    <h1>Hostel Management</h1>
+    
+    <ul>
+        {% for hostel in hostels %}
+            <li>{{ hostel.name }} - {{ hostel.address }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add more HTML/CSS/JS for hostel management UI as needed -->
+</body>
+</html>

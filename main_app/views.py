@@ -8,9 +8,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .EmailBackend import EmailBackend
 from .models import Attendance, Session, Subject
+from .models import Asset
 
 # Create your views here.
-
+def manage_assets(request):
+    assets = Asset.objects.all()
+    return render(request, 'manage_assets.html', {'assets': assets})
 
 def login_page(request):
     if request.user.is_authenticated:
@@ -87,6 +90,12 @@ def get_attendance(request):
         return JsonResponse(json.dumps(attendance_list), safe=False)
     except Exception as e:
         return None
+
+# views.py
+# views.py
+
+
+
 
 
 def showFirebaseJS(request):

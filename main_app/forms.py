@@ -4,6 +4,7 @@ from django.forms.widgets import DateInput, TextInput
 from .models import *
 
 
+
 class FormSettings(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormSettings, self).__init__(*args, **kwargs)

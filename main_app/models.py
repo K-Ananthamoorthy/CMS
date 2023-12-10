@@ -63,6 +63,13 @@ class CustomUser(AbstractUser):
 class Admin(models.Model):
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
+# models.py
+class Asset(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+
+
 
 
 class Course(models.Model):

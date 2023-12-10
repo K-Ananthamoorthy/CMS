@@ -19,6 +19,7 @@ from main_app.EditResultView import EditResultView
 
 from . import hod_views, staff_views, student_views, views
 
+
 urlpatterns = [
     path("", views.login_page, name='login_page'),
     path("get_attendance", views.get_attendance, name='get_attendance'),
@@ -83,6 +84,10 @@ urlpatterns = [
     path("subject/edit/<int:subject_id>",
          hod_views.edit_subject, name='edit_subject'),
 
+path("asset/manage/", hod_views.manage_assets, name='manage_assets'),
+   
+
+
 
     # Staff
     path("staff/home/", staff_views.staff_home, name='staff_home'),
@@ -129,5 +134,7 @@ urlpatterns = [
          name="student_view_notification"),
     path('student/view/result/', student_views.student_view_result,
          name='student_view_result'),
+
+
 
 ]
