@@ -24,4 +24,4 @@ Read prject info file for Build and execution
 1. Clone the repository:
 
    ```bash
- https://github.com/K-Ananthamoorthy/CMS.git
+[ https://github.com/K-Ananthamoorthy/CMS.git](https://github.com/K-Ananthamoorthy/CMS.git)https://github.com/K-Ananthamoorthy/CMS.git
