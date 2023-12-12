@@ -15,7 +15,7 @@ def manage_assets(request):
     assets = Asset.objects.all()
     return render(request, 'manage_assets.html', {'assets': assets})
 
-def login_page(request):
+def login_page(request):    
     if request.user.is_authenticated:
         if request.user.user_type == '1':
             return redirect(reverse("admin_home"))
