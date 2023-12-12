@@ -13,7 +13,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import dj_database_url
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
+
+
+db_key= os.getenv('db_key')
+db_id= os.getenv('db_id')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,11 +42,14 @@ ALLOWED_HOSTS = ['127.0.0.1']  # Not recommended but useful in dev mode
 
 INSTALLED_APPS = [
     # Django Apps
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    # 'dj_supabase',
     'django.contrib.messages',
+
     'django.contrib.staticfiles',
 
     # My Apps
@@ -84,23 +93,33 @@ TEMPLATES = [
 WSGI_APPLICATION = 'college_management_system.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'django',
-    #     'USER': os.environ.get('DB_USER'),
-    #     'PASSWORD': os.environ.get('DB_PASS'),
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3307'
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+ 
+    # 'default': {
+    #     'ENGINE': 'dj_supabase',
+    #     'URL': db_url,
+    #     'PROJECT_ID': db_id,
+    #     'API_KEY': db_key,
+    #     'AUTO_COMMIT': True,
+    #     'ENCODING': 'UTF8',
+    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': db_id,
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PORT': '5432',
+        'PASSWORD': db_key,
+    }
 }
+
+
 
 
 # Password validation
